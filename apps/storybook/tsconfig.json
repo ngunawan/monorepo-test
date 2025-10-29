@@ -1,0 +1,28 @@
+{
+  "extends": "@repo/typescript-config/base.json",
+  "compilerOptions": {
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "skipLibCheck": true,
+    "jsx": "react-jsx",
+    "baseUrl": ".",
+    "paths": {
+      "@ngunawan/ui": ["../../packages/ui/src"],
+      "@ngunawan/ui/*": ["../../packages/ui/src/*"]
+    }
+  },
+  "include": [
+    "src/**/*",
+    ".storybook/**/*",
+    "../../packages/ui/src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "storybook-static"
+  ]
+}
