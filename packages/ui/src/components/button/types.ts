@@ -5,6 +5,8 @@ export interface BaseButtonProps {
   onPress?: () => void;
   disabled?: boolean;
   testID?: string;
+  variant?: "primary" | "secondary" | "success" | "danger";
+  size?: "small" | "medium" | "large";
 }
 
 // Web-specific props
@@ -14,7 +16,7 @@ export interface WebButtonProps extends BaseButtonProps {
   onClick?: () => void;
 }
 
-// React Native-specific props  
+// React Native-specific props
 export interface NativeButtonProps extends BaseButtonProps {
   style?: Record<string, unknown>; // React Native StyleProp<ViewStyle>
   titleStyle?: Record<string, unknown>; // React Native StyleProp<TextStyle>

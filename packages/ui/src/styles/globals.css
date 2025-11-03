@@ -7,7 +7,7 @@
   border-radius: 0.25rem;
   font-weight: 700;
   color: white;
-  
+
   &:hover {
     background-color: rgb(29 78 216); /* blue-700 */
   }
@@ -19,7 +19,7 @@
   border-radius: 0.25rem;
   font-weight: 700;
   color: white;
-  
+
   &:hover {
     background-color: rgb(55 65 81); /* gray-700 */
   }

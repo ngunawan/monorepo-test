@@ -23,6 +23,13 @@ export default [
         extract: true,
         minimize: true,
         sourceMap: true,
+        modules: {
+          // Enable CSS modules for .module.css files
+          generateScopedName: "[name]__[local]___[hash:base64:5]",
+        },
+        config: {
+          path: "./postcss.config.js",
+        },
       }),
       typescript({
         tsconfig: "./tsconfig.build.json",

@@ -8,5 +8,6 @@
     "declarationMap": true,
     "noEmit": false,
     "outDir": "dist"
-  }
+  },
+  "include": ["src", "src/types/**/*"]
 }
