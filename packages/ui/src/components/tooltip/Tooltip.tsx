@@ -1,3 +1,5 @@
+"use client";
+
 import * as TooltipPrimitive from "@radix-ui/react-tooltip";
 import { ReactNode } from "react";
 import styles from "./Tooltip.module.css";

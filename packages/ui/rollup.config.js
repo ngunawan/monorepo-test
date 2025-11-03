@@ -3,6 +3,7 @@ import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
 import postcss from "rollup-plugin-postcss";
+import preserveDirectives from "rollup-plugin-preserve-directives";
 
 // Plugin to handle "use client" directives
 // function stripUseClient() {
@@ -22,21 +23,30 @@ import postcss from "rollup-plugin-postcss";
 export default [
   // ESM build
   {
-    input: "src/index.ts",
+    input: [
+      "src/index.ts",
+      "src/components/button/Button.tsx",
+      "src/components/dialog/Dialog.tsx", 
+      "src/components/dropdown/Dropdown.tsx",
+      "src/components/tooltip/Tooltip.tsx"
+    ],
     output: {
-      file: "dist/index.js",
+      dir: "dist",
       format: "esm",
       sourcemap: true,
+      preserveModules: true,
+      preserveModulesRoot: "src",
     },
-    // onwarn(warning, warn) {
-    //   // Suppress "use client" directive warnings from dependencies
-    //   if (warning.code === 'MODULE_LEVEL_DIRECTIVE') {
-    //     return;
-    //   }
-    //   warn(warning);
-    // },
+    onwarn(warning, warn) {
+      // Suppress "use client" directive warnings from dependencies
+      if (warning.code === "MODULE_LEVEL_DIRECTIVE") {
+        return;
+      }
+      warn(warning);
+    },
     plugins: [
       peerDepsExternal(),
+      preserveDirectives(),
       resolve({
         browser: true,
       }),
@@ -59,7 +69,6 @@ export default [
         declarationDir: "dist",
         rootDir: "src",
       }),
-      // stripUseClient(),
     ],
     external: ["react", "react-dom", "react-native"],
   },
@@ -71,15 +80,16 @@ export default [
       format: "esm",
       sourcemap: true,
     },
-    // onwarn(warning, warn) {
-    //   // Suppress "use client" directive warnings from dependencies
-    //   if (warning.code === 'MODULE_LEVEL_DIRECTIVE') {
-    //     return;
-    //   }
-    //   warn(warning);
-    // },
+    onwarn(warning, warn) {
+      // Suppress "use client" directive warnings from dependencies
+      if (warning.code === "MODULE_LEVEL_DIRECTIVE") {
+        return;
+      }
+      warn(warning);
+    },
     plugins: [
       peerDepsExternal(),
+      preserveDirectives(),
       resolve(),
       commonjs(),
       typescript({
@@ -88,7 +98,6 @@ export default [
         declarationDir: "dist",
         rootDir: "src",
       }),
-      // stripUseClient(),
     ],
     external: ["react", "react-dom", "react-native"],
   },

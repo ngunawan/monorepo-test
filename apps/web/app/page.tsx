@@ -1,3 +1,5 @@
+"use client";
+
 import Image, { type ImageProps } from "next/image";
 import { Button } from "@ngunawan/ui";
 import styles from "./page.module.css";
@@ -63,8 +65,8 @@ export default function Home() {
             Read our docs
           </a>
         </div>
-        <Button 
-          onClick={() => alert(`Hello from your web app!`)} 
+        <Button
+          onClick={() => alert(`Hello from your web app!`)}
           className={styles.secondary}
         >
           Open alert

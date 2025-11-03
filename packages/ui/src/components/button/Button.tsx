@@ -1,3 +1,5 @@
+"use client";
+
 import { Slot } from "@radix-ui/react-slot";
 import { WebButtonProps } from "./types";
 import styles from "./Button.module.css";
