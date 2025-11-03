@@ -11,7 +11,7 @@ import {
   SafeAreaProvider,
   useSafeAreaInsets,
 } from 'react-native-safe-area-context';
-import { Button } from "@ngunawan/ui/native";
+import { Button } from '@ngunawan/ui/native';
 
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
@@ -29,11 +29,11 @@ function AppContent() {
 
   return (
     <View style={styles.container}>
- <View style={styles.buttonContainer}>
+      <View style={styles.buttonContainer}>
         <Button onPress={() => console.log('Button pressed!')}>
           Hello from @ngunawan/ui/native
         </Button>
-        <Button 
+        <Button
           onPress={() => console.log('Second button pressed!')}
           disabled
           style={styles.disabledButton}
@@ -45,7 +45,6 @@ function AppContent() {
         templateFileName="App.tsx"
         safeAreaInsets={safeAreaInsets}
       />
-     
     </View>
   );
 }

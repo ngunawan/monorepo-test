@@ -1,33 +1,43 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { Button } from '@ngunawan/ui';
+import type { Meta, StoryObj } from "@storybook/react";
+import { Button } from "@ngunawan/ui";
 
 const meta: Meta<typeof Button> = {
-  title: 'Components/Button',
+  title: "Components/Button",
   component: Button,
   parameters: {
-    layout: 'centered',
+    layout: "centered",
   },
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     children: {
-      control: 'text',
-      description: 'Button content',
+      control: "text",
+      description: "Button content",
+    },
+    variant: {
+      control: "select",
+      options: ["primary", "secondary", "success", "danger"],
+      description: "Button variant",
+    },
+    size: {
+      control: "select",
+      options: ["small", "medium", "large"],
+      description: "Button size",
     },
     type: {
-      control: 'select',
-      options: ['button', 'submit', 'reset'],
-      description: 'Button type',
+      control: "select",
+      options: ["button", "submit", "reset"],
+      description: "Button type",
     },
     disabled: {
-      control: 'boolean',
-      description: 'Disable the button',
+      control: "boolean",
+      description: "Disable the button",
     },
     className: {
-      control: 'text',
-      description: 'CSS class name',
+      control: "text",
+      description: "Additional CSS class names",
     },
-    onClick: { action: 'clicked' },
-    onPress: { action: 'pressed' },
+    onClick: { action: "clicked" },
+    onPress: { action: "pressed" },
   },
 };
 
@@ -36,50 +46,62 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    children: 'Button',
+    children: "Button",
   },
 };
 
 export const Primary: Story = {
   args: {
-    children: 'Primary Button',
-    className: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded',
+    children: "Primary Button",
+    variant: "primary",
   },
 };
 
 export const Secondary: Story = {
   args: {
-    children: 'Secondary Button',
-    className: 'bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded',
+    children: "Secondary Button",
+    variant: "secondary",
   },
 };
 
-export const Disabled: Story = {
+export const Success: Story = {
   args: {
-    children: 'Disabled Button',
-    disabled: true,
-    className: 'bg-gray-300 text-gray-500 font-bold py-2 px-4 rounded cursor-not-allowed',
+    children: "Success Button",
+    variant: "success",
   },
 };
 
-export const Submit: Story = {
+export const Danger: Story = {
   args: {
-    children: 'Submit',
-    type: 'submit',
-    className: 'bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded',
-  },
-};
-
-export const Large: Story = {
-  args: {
-    children: 'Large Button',
-    className: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded text-lg',
+    children: "Danger Button",
+    variant: "danger",
   },
 };
 
 export const Small: Story = {
   args: {
-    children: 'Small Button',
-    className: 'bg-blue-500 hover:bg-blue-700 text-white font-semibold py-1 px-2 rounded text-sm',
+    children: "Small Button",
+    size: "small",
+  },
+};
+
+export const Large: Story = {
+  args: {
+    children: "Large Button",
+    size: "large",
+  },
+};
+
+export const Disabled: Story = {
+  args: {
+    children: "Disabled Button",
+    disabled: true,
+  },
+};
+
+export const CustomClass: Story = {
+  args: {
+    children: "Custom Button",
+    className: "shadow-lg",
   },
 };
