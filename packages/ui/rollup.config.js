@@ -26,9 +26,9 @@ export default [
     input: [
       "src/index.ts",
       "src/components/button/Button.tsx",
-      "src/components/dialog/Dialog.tsx", 
+      "src/components/dialog/Dialog.tsx",
       "src/components/dropdown/Dropdown.tsx",
-      "src/components/tooltip/Tooltip.tsx"
+      "src/components/tooltip/Tooltip.tsx",
     ],
     output: {
       dir: "dist",
@@ -60,7 +60,7 @@ export default [
           generateScopedName: "[name]__[local]___[hash:base64:5]",
         },
         config: {
-          path: "./postcss.config.js",
+          path: "./postcss.config.mjs",
         },
       }),
       typescript({
