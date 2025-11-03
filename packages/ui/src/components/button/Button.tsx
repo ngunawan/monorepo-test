@@ -2,14 +2,14 @@
 
 import { WebButtonProps } from "./types";
 
-export const Button = ({ 
-  children, 
-  className, 
-  type = "button", 
-  onClick, 
-  onPress, 
+export const Button = ({
+  children,
+  className,
+  type = "button",
+  onClick,
+  onPress,
   disabled = false,
-  testID 
+  testID,
 }: WebButtonProps) => {
   const handleClick = () => {
     if (onClick) onClick();
@@ -24,7 +24,7 @@ export const Button = ({
       disabled={disabled}
       data-testid={testID}
     >
-      {children}
+      {children} hello world
     </button>
   );
 };
