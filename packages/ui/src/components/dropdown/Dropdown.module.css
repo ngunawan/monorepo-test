@@ -1,0 +1,89 @@
+@reference "tailwindcss";
+
+/* Dropdown Trigger */
+.trigger {
+  @apply inline-flex items-center justify-center;
+  @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
+}
+
+/* Dropdown Content */
+.content {
+  @apply min-w-48 bg-white rounded-md shadow-lg border border-gray-200 z-50;
+  @apply py-1;
+  animation: slideDownAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.content[data-side="top"] {
+  animation: slideUpAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.content[data-side="right"] {
+  animation: slideLeftAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.content[data-side="left"] {
+  animation: slideRightAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Dropdown Item */
+.item {
+  @apply relative flex items-center px-3 py-2 text-sm text-gray-700;
+  @apply cursor-pointer select-none outline-none;
+  @apply data-[highlighted]:bg-blue-50 data-[highlighted]:text-blue-900;
+  @apply data-[disabled]:text-gray-400 data-[disabled]:cursor-not-allowed;
+}
+
+/* Dropdown Separator */
+.separator {
+  @apply h-px bg-gray-200 my-1;
+}
+
+/* Dropdown Label */
+.label {
+  @apply px-3 py-2 text-xs font-medium text-gray-500 uppercase tracking-wider;
+}
+
+/* Animations */
+@keyframes slideDownAndFade {
+  from {
+    opacity: 0;
+    transform: translateY(-2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUpAndFade {
+  from {
+    opacity: 0;
+    transform: translateY(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideRightAndFade {
+  from {
+    opacity: 0;
+    transform: translateX(-2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideLeftAndFade {
+  from {
+    opacity: 0;
+    transform: translateX(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

@@ -7,6 +7,7 @@ export interface BaseButtonProps {
   testID?: string;
   variant?: "primary" | "secondary" | "success" | "danger";
   size?: "small" | "medium" | "large";
+  asChild?: boolean;
 }
 
 // Web-specific props

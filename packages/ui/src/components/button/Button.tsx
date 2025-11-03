@@ -1,5 +1,4 @@
-"use client";
-
+import { Slot } from "@radix-ui/react-slot";
 import { WebButtonProps } from "./types";
 import styles from "./Button.module.css";
 
@@ -13,6 +12,7 @@ export const Button = ({
   testID,
   variant = "primary",
   size = "medium",
+  asChild = false,
 }: WebButtonProps) => {
   const handleClick = () => {
     if (onClick) onClick();
@@ -30,15 +30,17 @@ export const Button = ({
     .filter(Boolean)
     .join(" ");
 
+  const Comp = asChild ? Slot : "button";
+
   return (
-    <button
-      type={type}
+    <Comp
+      type={!asChild ? type : undefined}
       className={buttonClasses}
       onClick={handleClick}
       disabled={disabled}
       data-testid={testID}
     >
       {children}
-    </button>
+    </Comp>
   );
 };

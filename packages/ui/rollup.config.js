@@ -4,6 +4,21 @@ import typescript from "@rollup/plugin-typescript";
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
 import postcss from "rollup-plugin-postcss";
 
+// Plugin to handle "use client" directives
+// function stripUseClient() {
+//   return {
+//     name: 'strip-use-client',
+//     generateBundle(options, bundle) {
+//       Object.keys(bundle).forEach(fileName => {
+//         const chunk = bundle[fileName];
+//         if (chunk.type === 'chunk') {
+//           chunk.code = chunk.code.replace(/^['"]use client['"];?\s*/gm, '');
+//         }
+//       });
+//     }
+//   };
+// }
+
 export default [
   // ESM build
   {
@@ -13,6 +28,13 @@ export default [
       format: "esm",
       sourcemap: true,
     },
+    // onwarn(warning, warn) {
+    //   // Suppress "use client" directive warnings from dependencies
+    //   if (warning.code === 'MODULE_LEVEL_DIRECTIVE') {
+    //     return;
+    //   }
+    //   warn(warning);
+    // },
     plugins: [
       peerDepsExternal(),
       resolve({
@@ -37,6 +59,7 @@ export default [
         declarationDir: "dist",
         rootDir: "src",
       }),
+      // stripUseClient(),
     ],
     external: ["react", "react-dom", "react-native"],
   },
@@ -48,6 +71,13 @@ export default [
       format: "esm",
       sourcemap: true,
     },
+    // onwarn(warning, warn) {
+    //   // Suppress "use client" directive warnings from dependencies
+    //   if (warning.code === 'MODULE_LEVEL_DIRECTIVE') {
+    //     return;
+    //   }
+    //   warn(warning);
+    // },
     plugins: [
       peerDepsExternal(),
       resolve(),
@@ -58,6 +88,7 @@ export default [
         declarationDir: "dist",
         rootDir: "src",
       }),
+      // stripUseClient(),
     ],
     external: ["react", "react-dom", "react-native"],
   },
