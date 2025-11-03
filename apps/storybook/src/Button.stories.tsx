@@ -99,6 +99,17 @@ export const Disabled: Story = {
   },
 };
 
+export const AsChild: Story = {
+  args: {
+    asChild: true,
+    children: (
+      <a href="#" style={{ textDecoration: "none" }}>
+        Link as Button
+      </a>
+    ),
+  },
+};
+
 export const CustomClass: Story = {
   args: {
     children: "Custom Button",
