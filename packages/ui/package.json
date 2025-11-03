@@ -20,7 +20,8 @@
       "types": "./dist/native.d.ts",
       "import": "./dist/native.js",
       "require": "./dist/native.js"
-    }
+    },
+    "./styles": "./dist/index.css"
   },
   "scripts": {
     "build": "rollup -c",
@@ -36,13 +37,20 @@
     "@rollup/plugin-commonjs": "^29.0.0",
     "@rollup/plugin-node-resolve": "^16.0.3",
     "@rollup/plugin-typescript": "^12.3.0",
+    "@tailwindcss/forms": "^0.5.10",
+    "@tailwindcss/postcss": "^4.1.16",
+    "@tailwindcss/typography": "^0.5.19",
     "@types/node": "^22.15.3",
     "@types/react": "19.1.0",
     "@types/react-dom": "19.1.1",
     "@types/react-native": "^0.73.0",
+    "autoprefixer": "^10.4.21",
     "eslint": "^9.34.0",
+    "postcss": "^8.5.6",
     "rollup": "^4.52.5",
     "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.2",
+    "tailwindcss": "^4.1.16",
     "typescript": "5.9.2"
   },
   "peerDependencies": {

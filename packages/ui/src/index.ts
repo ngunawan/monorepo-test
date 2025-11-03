@@ -1,3 +1,6 @@
+// Styles
+import './styles/globals.css';
+
 // Web/React exports
 export { Button } from './components/button';
 export { Card } from './card';

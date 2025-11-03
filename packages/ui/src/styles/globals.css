@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+/* Custom component styles */
+@utility btn-primary {
+  background-color: rgb(59 130 246); /* blue-500 */
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  font-weight: 700;
+  color: white;
+  
+  &:hover {
+    background-color: rgb(29 78 216); /* blue-700 */
+  }
+}
+
+@utility btn-secondary {
+  background-color: rgb(107 114 128); /* gray-500 */
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  font-weight: 700;
+  color: white;
+  
+  &:hover {
+    background-color: rgb(55 65 81); /* gray-700 */
+  }
+}
+
+@utility btn-disabled {
+  background-color: rgb(209 213 219); /* gray-300 */
+  color: rgb(107 114 128); /* gray-500 */
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  font-weight: 700;
+  cursor: not-allowed;
+}
