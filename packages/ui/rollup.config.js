@@ -48,6 +48,7 @@ export default [
         declaration: true,
         declarationDir: "dist",
         rootDir: "src",
+        noForceEmit: true,
       }),
     ],
     external: ["react", "react-dom", "react-native"],
