@@ -4,15 +4,13 @@ import typescript from "@rollup/plugin-typescript";
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
 import postcss from "rollup-plugin-postcss";
 import preserveDirectives from "rollup-plugin-preserve-directives";
+import tailwindcssPostcss from "@tailwindcss/postcss";
+import autoprefixer from "autoprefixer";
 
 export default [
   // ESM build
   {
-    input: [
-      "src/index.ts",
-      "src/components/button/button.tsx",
-      "src/components/dialog/dialog.tsx",
-    ],
+    input: ["src/index.ts", "src/components/button/index.ts"],
     output: {
       dir: "dist",
       format: "esm",
@@ -36,15 +34,12 @@ export default [
       commonjs(),
       postcss({
         extract: true,
-        minimize: true,
+        minimize: false,
         sourceMap: true,
         modules: {
-          // Enable CSS modules for .module.css files
           generateScopedName: "[name]__[local]___[hash:base64:5]",
         },
-        config: {
-          path: "./postcss.config.mjs",
-        },
+        plugins: [tailwindcssPostcss(), autoprefixer()],
       }),
       typescript({
         tsconfig: "./tsconfig.build.json",

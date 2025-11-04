@@ -8,6 +8,8 @@ export interface BaseButtonProps {
   variant?: "primary" | "secondary" | "success" | "danger";
   size?: "small" | "medium" | "large";
   asChild?: boolean;
+  leftElement?: ReactNode;
+  rightElement?: ReactNode;
 }
 
 // Web-specific props

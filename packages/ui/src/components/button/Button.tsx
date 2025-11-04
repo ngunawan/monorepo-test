@@ -1,8 +1,9 @@
 "use client";
 
-import { Slot } from "@radix-ui/react-slot";
+import { Slot, Slottable } from "@radix-ui/react-slot";
 import { WebButtonProps } from "./types";
-import styles from "./Button.module.css";
+import styles from "./button.module.css";
+import { twMerge } from "tailwind-merge";
 
 export const Button = ({
   children,
@@ -15,34 +16,33 @@ export const Button = ({
   variant = "primary",
   size = "medium",
   asChild = false,
+  leftElement,
+  rightElement,
+  ...props
 }: WebButtonProps) => {
   const handleClick = () => {
     if (onClick) onClick();
     if (onPress) onPress();
   };
 
-  // Build CSS classes using CSS modules
-  const buttonClasses = [
-    styles.button,
-    styles[variant],
-    size !== "medium" && styles[size],
-    disabled && styles.disabled,
-    className,
-  ]
-    .filter(Boolean)
-    .join(" ");
-
   const Comp = asChild ? Slot : "button";
 
   return (
     <Comp
       type={!asChild ? type : undefined}
-      className={buttonClasses}
+      className={twMerge(
+        styles.button,
+        className,
+        "bg-red-50",
+        "text-white"
+      )}
       onClick={handleClick}
       disabled={disabled}
       data-testid={testID}
     >
-      {children}
+      {leftElement}
+      <Slottable>{children} sfs2</Slottable>
+      {rightElement}
     </Comp>
   );
 };
