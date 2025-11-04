@@ -30,6 +30,7 @@ export default [
       preserveDirectives(),
       resolve({
         browser: true,
+        extensions: [".js", ".jsx", ".ts", ".tsx"],
       }),
       commonjs(),
       postcss({
