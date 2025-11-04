@@ -10,7 +10,7 @@ import autoprefixer from "autoprefixer";
 export default [
   // ESM build
   {
-    input: ["src/index.ts", "src/components/button/Button.tsx"],
+    input: ["src/index.ts", "src/components/button/index.ts"],
     output: {
       dir: "dist",
       format: "esm",
@@ -28,11 +28,6 @@ export default [
     plugins: [
       peerDepsExternal(),
       preserveDirectives(),
-      resolve({
-        browser: true,
-        extensions: [".js", ".jsx", ".ts", ".tsx"],
-      }),
-      commonjs(),
       postcss({
         extract: true,
         minimize: false,
@@ -42,6 +37,12 @@ export default [
         },
         plugins: [tailwindcssPostcss(), autoprefixer()],
       }),
+      resolve({
+        browser: true,
+        extensions: [".js", ".jsx", ".ts", ".tsx", ".css"],
+        preferBuiltins: false,
+      }),
+      commonjs(),
       typescript({
         tsconfig: "./tsconfig.build.json",
         declaration: true,
