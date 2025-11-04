@@ -10,7 +10,7 @@ import autoprefixer from "autoprefixer";
 export default [
   // ESM build
   {
-    input: ["src/index.ts", "src/components/button/button.tsx"],
+    input: ["src/index.ts", "src/components/button/Button.tsx"],
     output: {
       dir: "dist",
       format: "esm",
