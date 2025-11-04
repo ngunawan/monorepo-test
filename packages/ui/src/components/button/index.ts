@@ -1,2 +1,6 @@
-export { Button } from "./Button";
-export type { WebButtonProps, NativeButtonProps, BaseButtonProps } from "./types";
+export { Button } from "./button";
+export type {
+  WebButtonProps,
+  NativeButtonProps,
+  BaseButtonProps,
+} from "./types";

@@ -5,30 +5,13 @@ import peerDepsExternal from "rollup-plugin-peer-deps-external";
 import postcss from "rollup-plugin-postcss";
 import preserveDirectives from "rollup-plugin-preserve-directives";
 
-// Plugin to handle "use client" directives
-// function stripUseClient() {
-//   return {
-//     name: 'strip-use-client',
-//     generateBundle(options, bundle) {
-//       Object.keys(bundle).forEach(fileName => {
-//         const chunk = bundle[fileName];
-//         if (chunk.type === 'chunk') {
-//           chunk.code = chunk.code.replace(/^['"]use client['"];?\s*/gm, '');
-//         }
-//       });
-//     }
-//   };
-// }
-
 export default [
   // ESM build
   {
     input: [
       "src/index.ts",
-      "src/components/button/Button.tsx",
-      "src/components/dialog/Dialog.tsx",
-      "src/components/dropdown/Dropdown.tsx",
-      "src/components/tooltip/Tooltip.tsx",
+      "src/components/button/button.tsx",
+      "src/components/dialog/dialog.tsx",
     ],
     output: {
       dir: "dist",
